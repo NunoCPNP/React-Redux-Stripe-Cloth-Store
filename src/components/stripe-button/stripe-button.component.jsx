@@ -1,14 +1,14 @@
-import React from 'react'
-import StripeCheckout from 'react-stripe-checkout'
+import React from 'react';
+import StripeCheckout from 'react-stripe-checkout';
 
 const StripeCheckoutButton = ({ price }) => {
-  const priceForStripe = price * 100
-  const publishableKey = 'pk_live_hcUImee2MrX0hIjcJo3C4YkT00SrQ9Pnqh'
+  const priceForStripe = price * 100;
+  const publishableKey = 'pk_test_WBqax2FWVzS9QlpJScO07iuL';
 
   const onToken = token => {
-    console.log(token)
-    alert('Payment Successful')
-  }
+    console.log(token);
+    alert('Payment Succesful!');
+  };
 
   return (
     <StripeCheckout
@@ -17,13 +17,13 @@ const StripeCheckoutButton = ({ price }) => {
       billingAddress
       shippingAddress
       image='https://svgshare.com/i/CUz.svg'
-      description={`Your total is ${price}`}
+      description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel='Pay Now'
       token={onToken}
       stripeKey={publishableKey}
     />
-  )
-}
+  );
+};
 
-export default StripeCheckoutButton
+export default StripeCheckoutButton;
